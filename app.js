@@ -59,11 +59,13 @@ app.get("/posts/:postName",function(req,res){
     const storeTitle = _.lowerCase(post.title);
 
     if(storeTitle === requestedTitle){
-      console.log("!Match found");
+      
+        res.render("post",{
+          postTitle : post.title,
+          postContent : post.content
+        });
     }
-    else{
-      console.log("! NO Match found");
-    }
+    
   });
 });
 // app.get("/posts/:akash/kumar/:postName",function(req,res){
