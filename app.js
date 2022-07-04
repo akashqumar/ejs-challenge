@@ -52,7 +52,15 @@ app.post("/compose",function(req,res){
 });
 
 app.get("/posts/:postName",function(req,res){
-  console.log(req.params);
+  const requestedTitle = req.params.postName;
+
+  posts.forEach(function(post){
+    const storeTitle = post.title;
+
+    if(storeTitle === requestedTitle){
+      console.log("!Match found");
+    }
+  });
 });
 // app.get("/posts/:akash/kumar/:postName",function(req,res){
 //   console.log(req.params);
